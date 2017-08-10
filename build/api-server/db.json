@@ -1,9 +1,286 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "currencies": [
+    {
+      "id": 1,
+      "profile_id": 2,
+      "title": "Gryvna",
+      "code": "UAH",
+      "value": 1,
+      "default": true
+    },
+    {
+      "id": 2,
+      "profile_id": 2,
+      "title": "Dollar",
+      "code": "USD",
+      "value": 25.7,
+      "default": false
+    },
+    {
+      "id": 3,
+      "profile_id": 2,
+      "title": "Ruble",
+      "code": "RUB",
+      "value": 0.41,
+      "default": false
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+  "users": [
+    {
+      "id": 1,
+      "profile_id": 2,
+      "currency_id": 1,
+      "email": "bilyk.a@novadumka.com",
+      "password": "bilyk.a",
+      "fullname": "Bilyk Andrii",
+      "status": true
+    },
+    {
+      "id": 2,
+      "profile_id": 2,
+      "currency_id": 2,
+      "email": "panchuk.b@novadumka.com",
+      "password": "panchuk.b",
+      "fullname": "Panchuk Bogdan",
+      "status": true
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profiles": [
+    {
+      "id": 1,
+      "title": "Newway",
+      "autoupdate_currency": true
+    },
+    {
+      "id": 2,
+      "title": "NovaDumka",
+      "autoupdate_currency": false
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "profile_id": 2,
+      "parent_id": null,
+      "is_income": true,
+      "title": "Web"
+    },
+    {
+      "id": 2,
+      "profile_id": 2,
+      "parent_id": 1,
+      "is_income": true,
+      "title": "Territory"
+    },
+    {
+      "id": 3,
+      "profile_id": 2,
+      "parent_id": 1,
+      "is_income": true,
+      "title": "OTCY"
+    },
+    {
+      "id": 4,
+      "profile_id": 2,
+      "parent_id": null,
+      "is_income": true,
+      "title": "Fl.ru"
+    },
+    {
+      "id": 5,
+      "profile_id": 2,
+      "parent_id": null,
+      "is_income": false,
+      "title": "Office"
+    },
+    {
+      "id": 6,
+      "profile_id": 2,
+      "parent_id": 5,
+      "is_income": false,
+      "title": "Обслуживание"
+    },
+    {
+      "id": 7,
+      "profile_id": 2,
+      "parent_id": 5,
+      "is_income": false,
+      "title": "Техника и аппаратура"
+    },
+    {
+      "id": 8,
+      "profile_id": 2,
+      "parent_id": null,
+      "is_income": false,
+      "title": "Зарплата"
+    }
+  ],
+  "agents": [
+    {
+      "id": 1,
+      "profile_id": 2,
+      "title": "OTCY",
+      "category_id": 3,
+      "phone": null,
+      "email": "info@otcy.ru",
+      "contact": "Max Arzhanov",
+      "description": null
+    },
+    {
+      "id": 2,
+      "profile_id": 2,
+      "title": "Territory",
+      "category_id": 2,
+      "phone": null,
+      "email": "info@territory.com.ua",
+      "contact": "Tertyshnaya Olga",
+      "description": "Kyiv promo studio"
+    },
+    {
+      "id": 3,
+      "profile_id": 2,
+      "title": "Fotobym",
+      "category_id": null,
+      "phone": null,
+      "email": "info@fotobym.com.ua",
+      "contact": "Vostrikova Inna",
+      "description": null
+    }
+  ],
+  "account-types": [
+    {
+      "id": 1,
+      "title": "Без типа",
+      "description": null
+    },
+    {
+      "id": 2,
+      "title": "Наличные",
+      "description": null
+    },
+    {
+      "id": 3,
+      "title": "Банк",
+      "description": null
+    },
+    {
+      "id": 4,
+      "title": "Активы",
+      "description": null
+    },
+    {
+      "id": 5,
+      "title": "Задолженность",
+      "description": null
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "profile_id": 2,
+      "account_type_id": 2,
+      "currency_id": 1,
+      "title": "Наличка",
+      "description": null,
+      "start_balance": 0,
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "profile_id": 2,
+      "account_type_id": 3,
+      "currency_id": 1,
+      "title": "Newway-PB",
+      "description": null,
+      "start_balance": 0,
+      "is_closed": false
+    },
+    {
+      "id": 3,
+      "profile_id": 2,
+      "account_type_id": 4,
+      "currency_id": 1,
+      "title": "Задолженность",
+      "description": null,
+      "start_balance": 0,
+      "is_closed": false
+    },
+    {
+      "id": 4,
+      "profile_id": 2,
+      "account_type_id": 5,
+      "currency_id": 1,
+      "title": "Зарплатный",
+      "description": null,
+      "start_balance": 0,
+      "is_closed": false
+    }
+  ],
+  "transaction-types": [
+    {
+      "id": 1,
+      "name": "internal",
+      "title": "Внутренний перевод"
+    },
+    {
+      "id": 2,
+      "name": "regular",
+      "title": "Регулярный платеж"
+    },
+    {
+      "id": 3,
+      "name": "cash",
+      "title": "Наличные"
+    },
+    {
+      "id": 4,
+      "name": "transfer",
+      "title": "Перевод"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "parent_id": null,
+      "related_transaction_id": null,
+      "account_id": 3,
+      "category_id": 1,
+      "agent_id": 2,
+      "date": "2017-08-09",
+      "amount": 100.00,
+      "commission": null,
+      "exchange_rate": null,
+      "description": "Территория - за проект",
+      "status": 2
+    },
+    {
+      "id": 2,
+      "parent_id": 1,
+      "related_transaction_id": 3,
+      "account_id": 3,
+      "category_id": 1,
+      "agent_id": 2,
+      "date": "2017-08-10",
+      "amount": -100.00,
+      "commission": 0,
+      "exchange_rate": 1,
+      "description": "Территория - за проект",
+      "status": 2
+    },
+    {
+      "id": 3,
+      "parent_id": null,
+      "related_transaction_id": 2,
+      "account_id": 2,
+      "category_id": 1,
+      "agent_id": 2,
+      "date": "2017-08-10",
+      "amount": 100.00,
+      "commission": 1,
+      "exchange_rate": 1,
+      "description": "Территория - за проект",
+      "status": 2
+    }
+
+  ]
 }

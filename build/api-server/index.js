@@ -2,18 +2,50 @@ const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('build/api-server/db.json')
 const middlewares = jsonServer.defaults()
+const utils = require('./utils.js')
+console.log('utils', utils)
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
 
-// Add custom routes before JSON Server router
-server.get('/response401', (req, res) => {
-  res.jsonp(req.query)
+server.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+  res.header('Access-Control-Expose-Headers', 'Authorization')
+  res.header('Access-Control-Request-Headers', 'Authorization')
+  res.header('Access-Control-Request-Method', 'GET, POST, OPTIONS, PUT')
+  next()
 })
 
-server.post('/echo', (req, res) => {
-  console.log('POST', req)
-  res.jsonp(req.query)
+server.use((req, res, next) => {
+  if (utils.isAuthorized(req)) { // add your authorization logic here
+    next() // continue to JSON Server router
+  } else {
+    res.sendStatus(401)
+  }
+})
+
+server.post('/auth/login', (req, res) => {
+  res.header('Authorization', 'Bearer CustomToken')
+  res.jsonp({
+    status: 'success'
+  })
+})
+
+server.get('/auth/refresh', (req, res) => {
+  res.header('Authorization', 'Bearer CustomToken')
+  res.jsonp({
+    status: 'success'
+  })
+})
+
+server.get('/auth/user', (req, res) => {
+  res.jsonp({
+    id: '1',
+    email: 'bilyk.a@novadumka.com',
+    fullname: 'Andrey'
+  })
 })
 
 server.use(router)

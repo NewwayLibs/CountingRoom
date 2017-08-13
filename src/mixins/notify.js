@@ -1,9 +1,16 @@
-import {default as ea} from '@/event-aggregator'
-
 export default {
   methods: {
-    notify: function (msg, options) {
-      ea.$emit('notify', msg, options)
+    success: function (msg, options) {
+      this.$toaster.success(msg, options)
+    },
+    info: function (msg, options) {
+      this.$toaster.info(msg, options)
+    },
+    error: function (msg, options) {
+      this.$toaster.error(msg, options)
+    },
+    warning: function (msg, options) {
+      this.$toaster.warning(msg, options)
     }
   }
 }

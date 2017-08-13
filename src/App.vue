@@ -2,56 +2,15 @@
   <div id="app">
     <!-- set progressbar -->
     <vue-progress-bar></vue-progress-bar>
-
-    <v-snackbar
-      :timeout="notifyData.timeout"
-      :top="notifyData.y === 'top'"
-      :bottom="notifyData.y === 'bottom'"
-      :right="notifyData.x === 'right'"
-      :left="notifyData.x === 'left'"
-      :multi-line="notifyData.mode === 'multi-line'"
-      :vertical="notifyData.mode === 'vertical'"
-      v-model="notifyData.status"
-    >
-      {{ notifyData.text }}
-      <v-btn flat class="pink--text" @click.native="notifyData.status = false">Close</v-btn>
-    </v-snackbar>
-
-    <v-snackbar
-      :timeout="notifyData.timeout"
-      :top="notifyData.y === 'top'"
-      :bottom="notifyData.y === 'bottom'"
-      :right="notifyData.x === 'right'"
-      :left="notifyData.x === 'left'"
-      :multi-line="notifyData.mode === 'multi-line'"
-      :vertical="notifyData.mode === 'vertical'"
-      v-model="notifyData.status"
-    >
-      {{ notifyData.text }}
-      <v-btn flat class="pink--text" @click.native="notifyData.status = false">Close</v-btn>
-    </v-snackbar>
-
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import {default as ea} from '@/event-aggregator'
-  import {assign} from 'lodash'
-
   export default {
     name: 'app',
     data () {
       return {
-        notifiers: [],
-        notifyData: {
-          status: false,
-          mode: 'vertical',
-          x: 'right',
-          y: 'bottom',
-          timeout: 5000,
-          text: null
-        }
       }
     },
     mounted () {
@@ -79,16 +38,6 @@
         //  finish the progress bar
         this.$Progress.finish()
       })
-
-      ea.$on('notify', this.notify)
-    },
-    methods: {
-      notify (msg, options) {
-        assign(this.notifyData, options)
-        console.log('app notify', msg)
-        this.notifyData.text = msg
-        this.notifyData.status = true
-      }
     }
   }
 </script>

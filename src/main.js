@@ -5,38 +5,16 @@ import Router from 'vue-router'
 import Vuetify from 'vuetify'
 import axios from 'axios'
 import VueProgressBar from 'vue-progressbar'
-import VueNotifications from 'vue-notifications'
-import miniToastr from 'mini-toastr'
+import Toaster from 'v-toaster'
 import App from './App'
 import routes from './routes'
 // import store from './store'
 import VueAuth from '@websanova/vue-auth'
 import '../node_modules/vuetify/dist/vuetify.min.css'
+import 'v-toaster/dist/v-toaster.css'
 
-miniToastr.init({types: {
-  success: 'success',
-  error: 'error',
-  info: 'info',
-  warn: 'warn'
-}})
-
-// Here we setup messages output to `mini-toastr`
-function toast ({title, message, type, timeout, cb}) {
-  return miniToastr[type](message, title, timeout, cb)
-}
-
-// Binding for methods .success(), .error() and etc. You can specify and map your own methods here.
-// Required to pipe our output to UI library (mini-toastr in example here)
-// All not-specified events (types) would be piped to output in console.
-const options = {
-  success: toast,
-  error: toast,
-  info: toast,
-  warn: toast
-}
-
-// Activate plugin
-Vue.use(VueNotifications, options)// VueNotifications have auto install but if we want to specify options we've got to do it manually.
+// optional set default imeout, the default is 10000 (10 seconds).
+Vue.use(Toaster, {timeout: 5000})
 
 // router
 Vue.use(Router)

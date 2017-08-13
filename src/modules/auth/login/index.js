@@ -13,43 +13,28 @@ export default {
   },
   created () {
     if (this.$auth.check()) {
-      this.alreadyLoggedIn()
-      this.$router.push({ name: 'home'})
+      this.warning('You have already logged in')
+      this.$router.push({name: 'home'})
     }
   },
   methods: {
     submit () {
       const redirect = this.$auth.redirect()
-      console.log('redirect', redirect)
       this.loading = true
+
       this.$auth.login({
         data: {email: this.email, password: this.password},
         fetchUser: false,
         redirect: {path: redirect ? redirect.from.fullPath : '/'},
         success: function () {
           this.loading = false
-          this.loginSuccess()
+          this.success('Login success')
         },
         error: function () {
           this.loading = false
-          this.loginError()
+          this.error('Login Failed')
         }
       })
-    }
-  },
-  notifications: {
-    loginError: {
-      title: 'Login Failed',
-      message: 'Failed to authenticate',
-      type: 'error' // Default: 'info', also you can use VueNotifications.type.error instead of 'error'
-    },
-    loginSuccess: {
-      title: 'Login successed',
-      type: 'success' // Default: 'info', also you can use VueNotifications.type.error instead of 'error'
-    },
-    alreadyLoggedIn: {
-      title: 'You have already logged in',
-      type: 'info' // Default: 'info', also you can use VueNotifications.type.error instead of 'error'
     }
   }
 }

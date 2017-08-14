@@ -4,7 +4,7 @@
     <h2>{{ msg }}</h2>
     <hr>
     <sub-comp></sub-comp>
-    <links></links>
+    <app-footer></app-footer>
   </div>
 </template>
 <script src="./index.js"></script>

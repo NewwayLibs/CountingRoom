@@ -42,9 +42,13 @@ server.get('/auth/refresh', (req, res) => {
 
 server.get('/auth/user', (req, res) => {
   res.jsonp({
-    id: '1',
-    email: 'bilyk.a@novadumka.com',
-    fullname: 'Andrey'
+    'id': 1,
+    'profile_id': 2,
+    'currency_id': 1,
+    'email': 'bilyk.a@novadumka.com',
+    'password': 'bilyk.a',
+    'fullname': 'Bilyk Andrii',
+    'status': true
   })
 })
 

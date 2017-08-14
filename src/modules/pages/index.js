@@ -1,36 +1,38 @@
-import Links from '@/components/Links.vue'
-import axios from 'axios'
+import appFooter from '@/components/appFooter.vue'
+import { mapGetters } from 'vuex'
+import store from '@/store'
+import Notify from '@/mixins/notify'
 
 export default {
   name: 'pages',
+  mixins: [Notify],
   components: {
-    Links
-  },
-  data () {
-    return {
-      page: null
-    }
+    appFooter
   },
   computed: {
-    // геттер вычисляемого значения
-    pageName: function () {
-      return this.$route.params.page
-    }
+    ...mapGetters(['page'])
   },
   beforeRouteEnter (to, from, next) {
     console.log(to.params, to)
-    axios.get(`/pages?slug=` + to.params.page)
+    store.dispatch('loadPage', to.params.page)
       .then(response => {
         console.log('ON beforeRouteEnter', response)
-        next(vm => vm.setData(response.data[0]))
+        next()
       })
       .catch(e => {
         console.error('ON beforeRouteEnter', e)
+        // this.error(e.getMessage())
       })
   },
-  methods: {
-    setData (data) {
-      this.page = data
-    }
+  beforeRouteUpdate (to, from, next) {
+    store.dispatch('loadPage', to.params.page)
+      .then(response => {
+        console.log('ON beforeRouteUpdate', response)
+        next()
+      })
+      .catch(e => {
+        console.error('ON beforeRouteUpdate', e)
+        this.error(e.getMessage())
+      })
   }
 }

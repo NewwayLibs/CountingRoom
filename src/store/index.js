@@ -2,9 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
-import * as mitations from './mitations'
-// import cart from './modules/cart'
-// import products from './modules/products'
+import * as mutations from './mutations'
+import page from './modules/page'
 import createLogger from '@/plugins/logger'
 
 Vue.use(Vuex)
@@ -14,11 +13,10 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   actions,
   getters,
-  mitations,
-  // modules: {
-  //   cart,
-  //   products
-  // },
+  mutations,
+  modules: {
+    page
+  },
   strict: debug,
   plugins: debug ? [createLogger()] : []
 })

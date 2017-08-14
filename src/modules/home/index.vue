@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <h1>Conuting Room</h1>
     <h2>{{ msg }}</h2>
 
-    <links></links>
+    <app-footer></app-footer>
   </div>
 </template>
 <script src="./index.js"></script>

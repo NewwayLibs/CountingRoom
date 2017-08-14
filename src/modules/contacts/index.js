@@ -1,11 +1,11 @@
 import SubComp from './components/SubComp.vue'
-import Links from '@/components/Links.vue'
+import appFooter from '@/components/appFooter.vue'
 
 export default {
   name: 'contacts',
   components: {
     SubComp,
-    Links
+    appFooter
   },
   data () {
     return {

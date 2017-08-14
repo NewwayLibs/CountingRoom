@@ -1,13 +1,13 @@
-import Links from '@/components/Links.vue'
+import appFooter from '@/components/appFooter.vue'
 
 export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'for internal processes'
     }
   },
   components: {
-    Links
+    appFooter
   }
 }

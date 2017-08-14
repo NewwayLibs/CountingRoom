@@ -8,7 +8,7 @@ import VueProgressBar from 'vue-progressbar'
 import Toaster from 'v-toaster'
 import App from './App'
 import routes from './routes'
-// import store from './store'
+import store from './store'
 import VueAuth from '@websanova/vue-auth'
 import '../node_modules/vuetify/dist/vuetify.min.css'
 import 'v-toaster/dist/v-toaster.css'
@@ -60,7 +60,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // store,
+  store,
   router,
   template: '<App/>',
   components: {App}

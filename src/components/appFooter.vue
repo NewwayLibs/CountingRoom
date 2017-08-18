@@ -14,10 +14,16 @@
         <router-link :to="{ name: 'pages', params: { page: 'faq' }}">Faq</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'pages', params: { page: 'error' }}">With error</router-link>
+        <router-link :to="{ name: 'app'}">App</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'summary'}">Summary</router-link>
       </li>
       <li>
         <router-link :to="{ name: 'login'}">Login</router-link>
+      </li>
+      <li>
+        <a href="#" @click="logout()">Logout</a>
       </li>
     </ul>
   </footer>
@@ -26,7 +32,12 @@
 
 <script>
   export default {
-    name: 'appFooter'
+    name: 'appFooter',
+    methods: {
+      logout () {
+        this.$auth.logout()
+      }
+    }
   }
 </script>
 <style lang="sass">

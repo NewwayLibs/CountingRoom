@@ -4,7 +4,7 @@ import * as actions from './actions'
 import * as getters from './getters'
 import * as mutations from './mutations'
 import page from './modules/page'
-import createLogger from '@/plugins/logger'
+import createLogger from '@/utils/logger'
 
 Vue.use(Vuex)
 

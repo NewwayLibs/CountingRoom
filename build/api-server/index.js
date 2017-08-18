@@ -3,7 +3,6 @@ const server = jsonServer.create()
 const router = jsonServer.router('build/api-server/db.json')
 const middlewares = jsonServer.defaults()
 const utils = require('./utils.js')
-console.log('utils', utils)
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
@@ -27,14 +26,14 @@ server.use((req, res, next) => {
 })
 
 server.post('/auth/login', (req, res) => {
-  res.header('Authorization', 'Bearer CustomToken')
+  res.header('Authorization', 'Bearer 1')
   res.jsonp({
     status: 'success'
   })
 })
 
 server.get('/auth/refresh', (req, res) => {
-  res.header('Authorization', 'Bearer CustomToken')
+  res.header('Authorization', req.header('authorization'))
   res.jsonp({
     status: 'success'
   })
@@ -42,13 +41,16 @@ server.get('/auth/refresh', (req, res) => {
 
 server.get('/auth/user', (req, res) => {
   res.jsonp({
-    'id': 1,
-    'profile_id': 2,
-    'currency_id': 1,
-    'email': 'bilyk.a@novadumka.com',
-    'password': 'bilyk.a',
-    'fullname': 'Bilyk Andrii',
-    'status': true
+    data: {
+      'id': 1,
+      'profile_id': 2,
+      'currency_id': 1,
+      'email': 'bilyk.a@novadumka.com',
+      'password': 'bilyk.a',
+      'fullname': 'Bilyk Andrii',
+      'avatar': 'https://randomuser.me/api/portraits/men/85.jpg',
+      'status': true
+    }
   })
 })
 

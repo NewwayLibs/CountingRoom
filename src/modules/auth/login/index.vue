@@ -1,5 +1,26 @@
 <template>
-  <v-container fluid>
+
+  <div>
+    <v-dialog :value="show" persistent>
+      <v-card hover style="background:white">
+        <v-container fill-height fluid class="deep-purple darken-1">
+          <v-card-title class="white&#45;&#45;text">
+            <div class="text-xs-center"> {{ $t("login")}}</div>
+          </v-card-title>
+        </v-container>
+        <v-container fill-height fluid>
+          <v-card-text class="pt-4">
+            <v-form v-model="model" :fields="fields" @success="submit" submitButtonText="login">
+              <div class="flex pb-2"><small>{{ $t("required_field")}}</small></div>
+            </v-form>
+          </v-card-text>
+        </v-container>
+      </v-card>
+    </v-dialog>
+  </div>
+
+
+  <!--<v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 md6 offset-md3>
         <v-card>
@@ -27,7 +48,7 @@
               :loading="loading"
               @click="submit()"
               :disabled="loading"
-              class="blue-grey white--text"
+              class="blue-grey white&#45;&#45;text"
             >
               Login
               <v-icon right dark>security</v-icon>
@@ -36,7 +57,7 @@
         </v-card>
       </v-flex>
     </v-layout>
-  </v-container>
+  </v-container>-->
 </template>
 <script src="./index.js"></script>
 <style lang="sass" src="./index.sass"></style>

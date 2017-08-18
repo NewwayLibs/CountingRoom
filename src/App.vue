@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <!-- set progressbar -->
-    <vue-progress-bar></vue-progress-bar>
-    <router-view></router-view>
+    <v-app>
+      <!-- set progressbar -->
+      <vue-progress-bar></vue-progress-bar>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
 
@@ -49,6 +51,5 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
 </style>

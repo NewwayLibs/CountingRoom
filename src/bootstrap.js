@@ -2,27 +2,71 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueAuth from '@websanova/vue-auth'
 import Vuetify from 'vuetify'
 import axios from 'axios'
 import VueProgressBar from 'vue-progressbar'
 import Toaster from 'v-toaster'
+import i18n from 'vue-i18n-manager'
+import VeeValidate from 'vee-validate'
+
 import App from './App'
 import routes from './routes'
 import store from './store'
-import VueAuth from '@websanova/vue-auth'
+import locales from './locales'
+import { default as ea } from './utils/event-aggregator'
+import VForm from './components/Form.vue'
+import VGrid from './components/Grid.vue'
+import VField from './components/Field.vue'
+
 import '../node_modules/vuetify/dist/vuetify.min.css'
 import 'v-toaster/dist/v-toaster.css'
+import './assets/style.sass'
 
-// optional set default imeout, the default is 10000 (10 seconds).
+Vue.component('v-form', VForm)
+Vue.component('v-grid', VGrid)
+Vue.component('v-field', VField)
+
 Vue.use(Toaster, {timeout: 5000})
+Vue.use(ea)
+Vue.use(Vuetify)
+Vue.use(VeeValidate, {
+  errorBagName: 'vErrors',
+  fieldsBagName: 'vFields'
+})
+
+Vue.use(i18n, {
+  store,
+  config: {
+    defaultCode: 'en-US',
+    languages: [
+      {
+        name: 'Ukrainian',
+        code: 'ua-UA',
+        urlPrefix: 'ua',
+        translationKey: 'ua'
+      },
+      {
+        name: 'Russian',
+        code: 'ru-RU',
+        urlPrefix: 'ru',
+        translationKey: 'ru'
+      },
+      {
+        name: 'English',
+        code: 'en-US',
+        urlPrefix: 'en',
+        translationKey: 'en'
+      }
+    ],
+    translations: locales
+  }
+})
 
 // router
 Vue.use(Router)
 const router = new Router(routes)
 Vue.router = router
-
-// vuetify
-Vue.use(Vuetify)
 
 // axios
 Vue.axios = axios
@@ -65,3 +109,9 @@ new Vue({
   template: '<App/>',
   components: {App}
 })
+
+Vue.initI18nManager()
+
+// Vue.initI18nManager().then(() => {
+//   app.$mount('#app')
+// })

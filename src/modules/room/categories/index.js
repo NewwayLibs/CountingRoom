@@ -1,9 +1,19 @@
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'categories',
   components: {},
   data () {
     return {
-      msg: 'Transactions'
+      title: ''
     }
+  },
+  created () {
+    this.updateModule({title: this.$t('title.categories')})
+  },
+  methods: {
+    ...mapMutations({
+      updateModule: 'room/updateCurrentModule'
+    })
   }
 }

@@ -1,1 +1,3 @@
 export const PAGE_LOADED = 'PAGE_LOADED'
+
+export const ROOM_MODULE_LOADED = 'ROOM_MODULE_LOADED'

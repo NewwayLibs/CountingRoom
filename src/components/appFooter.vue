@@ -14,7 +14,7 @@
         <router-link :to="{ name: 'pages', params: { page: 'faq' }}">Faq</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'app'}">App</router-link>
+        <router-link :to="{ name: 'room'}">Room</router-link>
       </li>
       <li>
         <router-link :to="{ name: 'summary'}">Summary</router-link>

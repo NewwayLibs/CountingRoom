@@ -5,7 +5,7 @@
         <v-list class="pa-0">
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
-              <img :src="avatar" @click="logout"/>
+              <img :src="avatar"/>
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>{{ username }}</v-list-tile-title>
@@ -51,7 +51,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed class="indigo darken-4" dark>
-      <v-toolbar-title>Counting Room</v-toolbar-title>
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-side-icon  @click.stop="drawer = !drawer">
         <v-icon>fa-bars</v-icon>

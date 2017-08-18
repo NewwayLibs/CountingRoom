@@ -1,3 +1,5 @@
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'room',
   components: {},
@@ -12,18 +14,24 @@ export default {
       right: null
     }
   },
+  created () {
+    this.updateTitle(this.$t('title.room'))
+    this.$router.push({name: 'summary'})
+  },
   computed: {
     username: function () {
       return this.$auth.user().fullname
     },
     avatar: function () {
       return this.$auth.user().avatar
-    }
+    },
+    ...mapGetters({
+      title: 'room/title'
+    })
   },
   methods: {
-    logout () {
-      console.log('this.$auth', this.$auth, this.$auth.user().email)
-      // this.$auth.logout()
-    }
+    ...mapMutations({
+      updateTitle: 'room/updateTitle'
+    })
   }
 }

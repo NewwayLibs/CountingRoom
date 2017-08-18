@@ -1,4 +1,5 @@
 import Menu from './components/Menu.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'summary',
@@ -7,7 +8,15 @@ export default {
   },
   data () {
     return {
-      msg: 'Summary'
+      title: ''
     }
+  },
+  created () {
+    this.updateModule({title: this.$t('title.summary')})
+  },
+  methods: {
+    ...mapMutations({
+      updateModule: 'room/updateCurrentModule'
+    })
   }
 }

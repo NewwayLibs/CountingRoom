@@ -1,12 +1,10 @@
 function isAuthorized (req) {
   let userId = fetchUserId(req)
-  console.log('userId', userId)
   return 1 || userId > 0
 }
 
 function fetchUserId (req) {
   let token = req.header('authorization')
-  console.log('token', token)
   if (token) {
     return parseUserId(token)
   }

@@ -1,5 +1,6 @@
 import Menu from './components/Menu.vue'
 import { mapMutations } from 'vuex'
+import { ROOM_MODULE_LOADED } from '@/store/mutation-types'
 
 export default {
   name: 'summary',
@@ -15,8 +16,8 @@ export default {
     this.updateModule({title: this.$t('title.summary')})
   },
   methods: {
-    ...mapMutations({
-      updateModule: 'room/updateCurrentModule'
+    ...mapMutations('room/', {
+      updateModule: ROOM_MODULE_LOADED
     })
   }
 }

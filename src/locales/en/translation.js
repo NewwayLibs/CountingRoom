@@ -8,5 +8,9 @@ export default {
     room: 'Counting Room',
     summary: 'Summary',
     categories: 'Categories'
+  },
+  categories: {
+    income: 'Income',
+    expenses: 'Expenses'
   }
 }

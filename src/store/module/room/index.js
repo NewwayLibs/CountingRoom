@@ -1,4 +1,5 @@
-// import Vue from 'vue'
+import categories from './categories'
+import {ROOM_MODULE_LOADED, ROOM_UPDATE_TITLE} from '../../mutation-types'
 
 const state = {
   title: 'Counting Room',
@@ -12,10 +13,10 @@ const getters = {
 
 // mutations
 const mutations = {
-  updateCurrentModule (state, module) {
+  [ROOM_MODULE_LOADED] (state, module) {
     state.currentModule = module
   },
-  updateTitle (state, title) {
+  [ROOM_UPDATE_TITLE] (state, title) {
     state.title = title
   }
 }
@@ -24,5 +25,8 @@ export default {
   namespaced: true,
   state,
   getters,
-  mutations
+  mutations,
+  modules: {
+    categories
+  }
 }

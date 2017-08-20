@@ -62,56 +62,97 @@
       "id": 1,
       "profile_id": 2,
       "parent_id": null,
-      "is_income": true,
-      "title": "Web"
+      "type": "income",
+      "icon": "fa-optin-monster",
+      "usage": 1,
+      "title": "Web",
+      "children": [
+        {
+          "id": 2,
+          "profile_id": 2,
+          "parent_id": 1,
+          "type": "income",
+          "icon": "fa-optin-monster",
+          "usage": 2,
+          "title": "Territory",
+          "children": []
+        },
+        {
+          "id": 3,
+          "profile_id": 2,
+          "parent_id": 1,
+          "type": "income",
+          "icon": "fa-optin-monster",
+          "usage": 3,
+          "title": "OTCY",
+          "children": []
+        }
+      ]
     },
     {
       "id": 2,
       "profile_id": 2,
       "parent_id": 1,
-      "is_income": true,
-      "title": "Territory"
+      "type": "income",
+      "icon": "fa-optin-monster",
+      "usage": 2,
+      "title": "Territory",
+      "children": []
     },
     {
       "id": 3,
       "profile_id": 2,
       "parent_id": 1,
-      "is_income": true,
-      "title": "OTCY"
+      "type": "income",
+      "icon": "fa-optin-monster",
+      "usage": 3,
+      "title": "OTCY",
+      "children": []
     },
     {
       "id": 4,
       "profile_id": 2,
       "parent_id": null,
-      "is_income": true,
-      "title": "Fl.ru"
+      "type": "income",
+      "icon": "fa-optin-monster",
+      "usage": 10,
+      "title": "Fl.ru",
+      "children": []
     },
     {
       "id": 5,
       "profile_id": 2,
       "parent_id": null,
-      "is_income": false,
+      "type": "expense",
+      "icon": "fa-optin-monster",
+      "usage": 12,
       "title": "Office"
     },
     {
       "id": 6,
       "profile_id": 2,
       "parent_id": 5,
-      "is_income": false,
+      "type": "expense",
+      "icon": "fa-optin-monster",
+      "usage": 14,
       "title": "Обслуживание"
     },
     {
       "id": 7,
       "profile_id": 2,
       "parent_id": 5,
-      "is_income": false,
+      "type": "expense",
+      "icon": "fa-optin-monster",
+      "usage": 17,
       "title": "Техника и аппаратура"
     },
     {
       "id": 8,
       "profile_id": 2,
       "parent_id": null,
-      "is_income": false,
+      "type": "expense",
+      "icon": "fa-optin-monster",
+      "usage": 19,
       "title": "Зарплата"
     }
   ],
@@ -247,7 +288,7 @@
       "category_id": 1,
       "agent_id": 2,
       "date": "2017-08-09",
-      "amount": 100.00,
+      "amount": 100,
       "commission": null,
       "exchange_rate": null,
       "description": "Территория - за проект",
@@ -261,7 +302,7 @@
       "category_id": 1,
       "agent_id": 2,
       "date": "2017-08-10",
-      "amount": -100.00,
+      "amount": -100,
       "commission": 0,
       "exchange_rate": 1,
       "description": "Территория - за проект",
@@ -275,13 +316,12 @@
       "category_id": 1,
       "agent_id": 2,
       "date": "2017-08-10",
-      "amount": 100.00,
+      "amount": 100,
       "commission": 1,
       "exchange_rate": 1,
       "description": "Территория - за проект",
       "status": 2
     }
-
   ],
   "pages": [
     {
@@ -290,13 +330,11 @@
       "title": "О проекте",
       "content": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc"
     },
-
     {
       "id": 2,
       "slug": "faq",
       "title": "FAQ",
       "content": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc"
     }
-
   ]
 }

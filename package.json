@@ -26,7 +26,7 @@
     "vue-i18n": "^7.1.1",
     "vue-i18n-manager": "^3.3.1",
     "vue-router": "^2.6.0",
-    "vuetify": "^0.14.8",
+    "vuetify": "^0.14.11",
     "vuex": "^2.3.1"
   },
   "devDependencies": {

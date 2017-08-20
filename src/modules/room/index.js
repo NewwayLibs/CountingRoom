@@ -1,4 +1,5 @@
 import { mapGetters, mapMutations } from 'vuex'
+import { ROOM_UPDATE_TITLE } from '@/store/mutation-types'
 
 export default {
   name: 'room',
@@ -16,7 +17,9 @@ export default {
   },
   created () {
     this.updateTitle(this.$t('title.room'))
-    this.$router.push({name: 'summary'})
+    if (this.$router.currentRoute.name === 'room') {
+      this.$router.push({name: 'summary'})
+    }
   },
   computed: {
     username: function () {
@@ -30,8 +33,8 @@ export default {
     })
   },
   methods: {
-    ...mapMutations({
-      updateTitle: 'room/updateTitle'
+    ...mapMutations('room/', {
+      updateTitle: ROOM_UPDATE_TITLE
     })
   }
 }

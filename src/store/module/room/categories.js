@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import axios from 'axios'
-import { listToTree, deepCopy } from '@/utils/utils'
 import {
   CATEGORY_INIT,
-  CATEGORY_UPDATE
+  CATEGORY_UPDATE,
+  CATEGORY_DELETE
 } from '../../mutation-types'
 
 const state = {
@@ -13,8 +13,8 @@ const state = {
 
 // getters
 const getters = {
-  income: state => listToTree(deepCopy(state.list.filter((row) => row.type === 'income'))),
-  expense: state => listToTree(deepCopy(state.list.filter((row) => row.type === 'expense')))
+  income: state => state.list.filter((row) => row.type === 'income'),
+  expense: state => state.list.filter((row) => row.type === 'expense')
 }
 
 // mutations
@@ -28,6 +28,12 @@ const mutations = {
       Vue.set(state.list, idx, category)
     } else {
       Vue.set(state.list, state.list.length, category)
+    }
+  },
+  [CATEGORY_DELETE] (state, categoryId) {
+    let idx = state.list.findIndex(item => categoryId === item.id)
+    if (idx >= 0) {
+      Vue.delete(state.list, idx)
     }
   }
 }
@@ -44,6 +50,22 @@ const actions = {
         })
     })
   },
+  CATEGORY_ADD ({commit}, payload) {
+    console.log('add category', payload)
+
+    // @todo remove
+    payload.profile_id = 2
+    payload.usage = 2
+
+    return new Promise((resolve, reject) => {
+      axios.post('/categories', payload)
+        .then(response => {
+          console.log('CATEGORY_ADD actions', response.data)
+          commit('CATEGORY_UPDATE', response.data)
+          resolve()
+        })
+    })
+  },
   CATEGORY_UPDATE ({commit}, payload) {
     console.log('save category', payload)
     return new Promise((resolve, reject) => {
@@ -51,6 +73,17 @@ const actions = {
         .then(response => {
           console.log('ON actions', response.data)
           commit('CATEGORY_UPDATE', payload)
+          resolve()
+          // reject()
+        })
+    })
+  },
+  CATEGORY_DELETE ({commit}, payload) {
+    console.log('save category', payload)
+    return new Promise((resolve, reject) => {
+      axios.delete('/categories/' + payload.id)
+        .then(response => {
+          commit('CATEGORY_DELETE', payload.id)
           resolve()
         })
     })

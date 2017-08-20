@@ -14,21 +14,35 @@
       </v-tabs-bar>
       <v-tabs-content :id="'income'">
         <v-card flat>
-          <v-card-text>Income: {{ incomeCategories.length }}</v-card-text>
-          <list :items="incomeCategories"></list>
+          <v-container fluid>
+            <v-layout row>
+              <v-flex xs2 offset-xs10>
+                <v-btn dark primary small left @click="add('income')">
+                  <v-icon>fa-plus</v-icon>
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+          <list :items="incomeTree"></list>
         </v-card>
       </v-tabs-content>
       <v-tabs-content :id="'expenses'">
         <v-card flat>
-          <v-card-text>Expense: {{ expenseCategories.length }}</v-card-text>
+          <v-container fluid>
+            <v-layout row>
+              <v-flex xs2 offset-xs10>
+                <v-btn dark primary small left @click="add('expense')">
+                  <v-icon>fa-plus</v-icon>
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+          <list :items="expenseTree"></list>
         </v-card>
       </v-tabs-content>
     </v-tabs>
 
-    <edit-form v-if="showEditForm" :category="editData" :list="editParents"></edit-form>
-
-
-    <h3>Income list: {{ incomeCategories.length }}</h3>
+    <edit-form v-if="showEditForm" :category="payload" :list="parents"></edit-form>
   </div>
 </template>
 <script src="./index.js"></script>

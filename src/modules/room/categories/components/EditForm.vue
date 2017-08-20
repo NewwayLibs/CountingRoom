@@ -50,11 +50,16 @@
           </v-layout>
         </v-container>
       </v-card-text>
-      <v-card-actions>
-        <v-btn error class="text-xs-left" @click="remove()">Delete</v-btn>
+      <v-card-actions v-if="!loading">
+        <v-btn v-if="category.id" error class="text-xs-left" @click="remove()">Delete</v-btn>
         <v-spacer></v-spacer>
         <v-btn secondary @click="cancel()">Cancel</v-btn>
         <v-btn primary @click="save()" :disabled="!isValid">Save</v-btn>
+      </v-card-actions>
+      <v-card-actions v-else>
+        <v-spacer></v-spacer>
+        <v-progress-circular indeterminate center class="primary--text"></v-progress-circular>
+        <v-spacer></v-spacer>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -75,6 +80,7 @@
     },
     data () {
       return {
+        loading: false,
         types: [
           {value: 'income', text: 'Income'},
           {value: 'expense', text: 'Expense'}
@@ -86,27 +92,29 @@
         return !this.vErrors.any()
       },
       parents () {
-        let list = []
+        let list = [
+          {value: null, text: ''}
+        ]
         this.list.forEach(row => {
           if (row.id !== this.category.id) {
             list.push({value: row.id, text: row.title})
           }
         })
         return list
-
-//        return this.list.filter((row) => row.id !== this.category.id)
       }
     },
     methods: {
       save () {
-        console.log('lets saving', this.category)
+        this.loading = true
         this.$bus.$emit('category.save', this.category)
       },
       cancel () {
+        this.loading = true
         this.$bus.$emit('category.cancel')
       },
       remove () {
-        this.$bus.$emit('category.cancel')
+        this.loading = true
+        this.$bus.$emit('category.remove', this.category)
       }
     }
   }

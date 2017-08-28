@@ -3,6 +3,7 @@
     <v-app>
       <!-- set progressbar -->
       <vue-progress-bar></vue-progress-bar>
+      <language-switcher label="name"/>
       <router-view></router-view>
     </v-app>
   </div>
@@ -51,5 +52,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+  .language-switcher-wrapper button {
+    margin: 0 15px;
   }
 </style>

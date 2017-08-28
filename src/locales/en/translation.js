@@ -12,5 +12,13 @@ export default {
   categories: {
     income: 'Income',
     expenses: 'Expenses'
+  },
+  contacts: {
+    title: 'Contacts',
+    content: 'Contacts content'
+  },
+  home: {
+    title: 'Conuting Room',
+    content: 'for internal processes'
   }
 }

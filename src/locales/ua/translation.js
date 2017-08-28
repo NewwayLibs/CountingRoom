@@ -1,3 +1,7 @@
 export default {
-  'menu': 'Menu UA'
+  'menu': 'Menu UA',
+  contacts: {
+    title: 'UA Contacts',
+    content: 'UA Contacts content'
+  }
 }

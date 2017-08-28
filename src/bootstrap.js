@@ -7,8 +7,9 @@ import Vuetify from 'vuetify'
 import axios from 'axios'
 import VueProgressBar from 'vue-progressbar'
 import Toaster from 'v-toaster'
-import i18n from 'vue-i18n-manager'
+import VueI18nManager from 'vue-i18n-manager'
 import VeeValidate from 'vee-validate'
+import VueI18nUtils from 'vue-i18n-utils'
 
 import App from './App'
 import routes from './routes'
@@ -35,22 +36,28 @@ Vue.use(VeeValidate, {
   fieldsBagName: 'vFields'
 })
 
-Vue.use(i18n, {
+// router
+Vue.use(Router)
+const router = new Router(routes)
+Vue.router = router
+
+Vue.use(VueI18nManager, {
   store,
+  router,
   config: {
-    defaultCode: 'en-US',
+    defaultCode: 'ru-RU',
     languages: [
+      {
+        name: 'Russian',
+        code: 'ru-RU',
+        urlPrefix: null,
+        translationKey: 'ru'
+      },
       {
         name: 'Ukrainian',
         code: 'ua-UA',
         urlPrefix: 'ua',
         translationKey: 'ua'
-      },
-      {
-        name: 'Russian',
-        code: 'ru-RU',
-        urlPrefix: 'ru',
-        translationKey: 'ru'
       },
       {
         name: 'English',
@@ -63,10 +70,7 @@ Vue.use(i18n, {
   }
 })
 
-// router
-Vue.use(Router)
-const router = new Router(routes)
-Vue.router = router
+Vue.use(VueI18nUtils)
 
 // axios
 Vue.axios = axios

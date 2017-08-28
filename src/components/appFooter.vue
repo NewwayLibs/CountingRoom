@@ -2,16 +2,16 @@
   <footer id="footer">
     <ul>
       <li>
-        <router-link :to="{ name: 'home'}">Home</router-link>
+        <router-link :to="$localize({ name: 'home'})">Home</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'contacts'}">Contacts</router-link>
+        <router-link :to="$localize({ name: 'contacts'})">Contacts</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'pages', params: { page: 'about' }}">About</router-link>
+        <router-link :to="$localize({ name: 'pages', params: { page: 'about' }})">About</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'pages', params: { page: 'faq' }}">Faq</router-link>
+        <router-link :to="$localize({ name: 'pages', params: { page: 'faq' }})">Faq</router-link>
       </li>
       <li>
         <router-link :to="{ name: 'room'}">Room</router-link>
@@ -20,7 +20,7 @@
         <router-link :to="{ name: 'summary'}">Summary</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'login'}">Login</router-link>
+        <router-link :to="$localize({ name: 'login'})">Login</router-link>
       </li>
       <li>
         <a href="#" @click="logout()">Logout</a>

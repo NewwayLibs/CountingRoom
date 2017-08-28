@@ -10,10 +10,10 @@ import Categories from '@/modules/room/categories/index.vue'
 export default {
   mode: 'history',
   routes: [
-    {path: '/', name: 'home', component: Home},
-    {path: '/contacts', name: 'contacts', component: Contacts},
-    {path: '/pages/:page', name: 'pages', component: Page, meta: {auth: true}},
-    {path: '/login', name: 'login', component: Login, meta: {auth: null}},
+    {path: '/:lang?/', name: 'home', component: Home},
+    {path: '/:lang?/contacts', name: 'contacts', component: Contacts},
+    {path: '/:lang?/pages/:page', name: 'pages', component: Page, meta: {auth: true}},
+    {path: '/:lang?/login', name: 'login', component: Login, meta: {auth: null}},
     {
       path: '/room',
       name: 'room',

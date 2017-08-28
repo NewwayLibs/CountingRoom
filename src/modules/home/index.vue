@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>Conuting Room</h1>
-    <h2>{{ msg }}</h2>
+    <h1>{{ $t('home.title') }}</h1>
+    <h2>{{ $t('home.content') }}</h2>
 
     <app-footer></app-footer>
   </div>

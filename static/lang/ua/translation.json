@@ -1,0 +1,24 @@
+{
+  "login": "login",
+  "required_field": "* Indicates required field",
+  "email": "Email",
+  "password": "Password",
+  "menu": "Menu UA ",
+  "title": {
+    "room": "UA Counting Room",
+    "summary": "UA Summary",
+    "categories": "UA Categories"
+  },
+  "categories": {
+    "income": "UA Income",
+    "expenses": "UA Expenses"
+  },
+  "contacts": {
+    "title": "UA Contacts",
+    "content": "UA Contacts content"
+  },
+  "home": {
+    "title": "UA Conuting Room",
+    "content": "UA for internal processes"
+  }
+}

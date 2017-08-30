@@ -1,5 +1,10 @@
-import ru from './ru/translation'
-import en from './en/translation'
-import ua from './ua/translation'
+import axios from 'axios'
 
-export default { ru, en, ua }
+export default {
+  getTranslation: function ({ translationKey }) {
+    return axios.get(`http://localhost:8080/static/lang/${translationKey}/translation.json`).then(function (response) {
+      console.log('getTranslation', response)
+      return response.data
+    })
+  }
+}

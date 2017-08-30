@@ -1,0 +1,24 @@
+{
+  "login": "login",
+  "required_field": "* Indicates required field",
+  "email": "Email",
+  "password": "Password",
+  "menu": "Menu RU ",
+  "title": {
+    "room": "RU Counting Room",
+    "summary": "RU Summary",
+    "categories": "RU Categories"
+  },
+  "categories": {
+    "income": "RU Income",
+    "expenses": "RU Expenses"
+  },
+  "contacts": {
+    "title": "RU Contacts",
+    "content": "RU Contacts content"
+  },
+  "home": {
+    "title": "RU Conuting Room",
+    "content": "RU for internal processes"
+  }
+}

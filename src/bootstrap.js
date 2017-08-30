@@ -14,7 +14,7 @@ import VueI18nUtils from 'vue-i18n-utils'
 import App from './App'
 import routes from './routes'
 import store from './store'
-import locales from './locales'
+import proxy from './locales'
 import { default as ea } from './utils/event-aggregator'
 import VForm from './components/Form.vue'
 import VGrid from './components/Grid.vue'
@@ -44,6 +44,7 @@ Vue.router = router
 Vue.use(VueI18nManager, {
   store,
   router,
+  proxy,
   config: {
     defaultCode: 'ru-RU',
     languages: [
@@ -65,8 +66,7 @@ Vue.use(VueI18nManager, {
         urlPrefix: 'en',
         translationKey: 'en'
       }
-    ],
-    translations: locales
+    ]
   }
 })
 
@@ -106,16 +106,15 @@ Vue.use(VueProgressBar, {
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
+const app = new Vue({
   store,
   router,
   template: '<App/>',
   components: {App}
 })
 
-Vue.initI18nManager()
+// Vue.initI18nManager()
 
-// Vue.initI18nManager().then(() => {
-//   app.$mount('#app')
-// })
+Vue.initI18nManager().then(() => {
+  app.$mount('#app')
+})
